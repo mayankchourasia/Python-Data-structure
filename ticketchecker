@@ -1,0 +1,121 @@
+# class for creating node instance
+class Node:
+    def __init__(self, dataval=None):
+        self.dataval = dataval
+        self.nextval = None
+Headnode = None                                  #to indicate first node
+n = 1
+while n != 22:
+        b = {'coach':None,'seat':n,'pick_up':None,'to':None,'status':None,'name':None,'surname':None}
+        if Headnode == None:                              
+            Headnode = Node(b)
+        else:
+            temp = Headnode
+            while temp.nextval != None:
+                temp = temp.nextval
+            temp.nextval = Node(b)
+        n = n+1
+
+                                       
+
+while True :
+    print( "------------------------------------------------------------------------------------------------------------------------------------------------------------------")                                    
+    p = input("1. allocate seat to passenger  2. check the status of passenger  3. search seat  4. show all seats  5. allocate abcent seat to new passenger   6. exit \n")
+    print("    ")
+    List1=[]
+    if p == 1:
+        List1.append(coach = raw_input("-----------Enter coach-----------"))
+        List1.append(        pick_up = raw_input("-------Enter pick_up point------")
+
+        pick_up = raw_input("-------Enter pick_up point------")
+        to = raw_input("----------Enter destination point---------")
+        cus_name = raw_input("---------Enter passenger name------------")
+        cus_surname = raw_input("-----------Enter passenger surname-------------")
+        temp = Headnode
+
+        if Headnode == None:                     
+            print (" ----Train is Empty----")
+        else:
+            temp = Headnode
+            while temp.nextval != None:
+                if temp.dataval['name'] == None:
+                    temp.dataval['name'] = cus_name
+                    temp.dataval['surname'] = cus_surname
+                    temp.dataval['pick_up'] = pick_up
+                    temp.dataval['to'] = to
+                    temp.dataval['coach'] = coach
+                    break
+                temp = temp.nextval
+
+
+    elif p == 2:
+        if Headnode == None:                     
+            print(" ----Train is Empty----")
+        else:
+            temp = Headnode
+            while temp.nextval != None:
+                
+                if temp.dataval['name'] == None:
+                    break
+                    
+                else:
+                    print ("Enter status for :",temp.dataval['name'])
+                    st = input('')
+                    temp.dataval['status'] = st
+                     
+                temp = temp.nextval
+
+
+        
+    elif p == 3:
+        if Headnode == None:                              
+            print (" ----Train is Empty----")
+        else:
+            temp = Headnode
+            c = input("Enter seat no : ")
+            while temp.nextval != None:
+                
+                if temp.dataval['seat'] == c:
+                    print (temp.dataval)
+                    break
+                     
+                temp = temp.nextval
+
+        
+
+    elif p == 4:
+        
+        if Headnode == None:                              
+            print (" ----Train is Empty----")
+        elif Headnode.nextval == None:                     
+            print (Headnode.dataval)
+        else:
+            temp = Headnode
+            while temp.nextval != None:
+                print( temp.dataval)
+                temp = temp.nextval
+        
+
+    elif p == 5: 
+        if Headnode == None:                     
+            print (" ----Train is Empty----")
+        else:
+            temp = Headnode
+            while temp.nextval != None:
+                
+                if temp.dataval['name'] == None:
+                    break
+                    
+                else:
+                    if temp.dataval['status'] == 0:
+                        temp.dataval['status'] = None
+                        temp.dataval['name'] = None
+                        temp.dataval['surname'] = None
+                        temp.dataval['pick_up'] = None
+                        temp.dataval['to'] = None
+                        temp.dataval['coach'] = None
+                        
+                temp = temp.nextval
+
+    else:
+        print("Thanks for visit !!!!!!!!")
