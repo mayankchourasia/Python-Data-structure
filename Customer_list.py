@@ -23,6 +23,10 @@ def main():
                                 Customer.addcustomer()
 			else :
 				Customer.Display()
+					      
+
+if __name__ == '__main__':
+        main()
 
 
 		
