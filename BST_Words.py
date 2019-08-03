@@ -66,7 +66,12 @@ while True:
     if ch==3:
 	ke=raw_input("Enter the Key To select")
 	print search(r,ke)
-   
+    if ch==4:
+	d=raw_input("Enter the Node to be Deleted")
+	deletenode(r,Node(d))
+    if ch==5:
+	print ("Dont Visit Again")
+	break;
 
 
 		
